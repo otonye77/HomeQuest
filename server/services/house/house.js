@@ -1,14 +1,17 @@
 const House = require('../../models/houses/house');
 const { v4: uuidv4 } = require("uuid");
 
-const createHouseService = async (typeOfHouse, address, noOfRooms, userId, image) => {
+const createHouseService = async (typeOfHouse, address, noOfRooms, availability, userId, noOfBathroom, noOfSquareFeet, image) => {
     try {
         const newHouse = await House.create({
             id: uuidv4(),
             typeOfHouse,
             address,
             noOfRooms,
+            availability,
             userId,
+            noOfBathroom,
+            noOfSquareFeet,
             image
         })
         return newHouse;
@@ -68,6 +71,7 @@ const EditHouse = async (houseId, updatedData) => {
         throw error;
     }
 }
+
 
 module.exports = {
     createHouseService,

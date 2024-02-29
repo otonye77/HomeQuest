@@ -2,14 +2,14 @@ const createHouseService = require("../../services/house/house");
 
 const CreateHouse = async (req, res) => {
     try {
-        const { typeOfHouse, address, noOfRooms, userId, image } = req.body;
-        if (!typeOfHouse || !address || !noOfRooms || !userId || !image) {
+        const { typeOfHouse, address, noOfRooms, availability, userId, noOfBathroom, noOfSquareFeet, image } = req.body;
+        if (!typeOfHouse || !address || !noOfRooms || !availability || !userId || !image) {
             return res.status(400).json({
-                error: "typeOfHouse, address, noOfRooms, userId, image cannot be empty"
+                error: "typeOfHouse, address, noOfRooms, availability, userId, image cannot be empty"
             });
         }
 
-        const house = await createHouseService.createHouseService(typeOfHouse, address,  noOfRooms, userId, image);
+        const house = await createHouseService.createHouseService(typeOfHouse, address, noOfRooms, availability, userId, noOfBathroom, noOfSquareFeet, image);
         return res.status(201).json(house);
     } catch (error) {
         console.log(error);
@@ -41,7 +41,7 @@ const GetHouseById = async (req, res) => {
 const DeleteHouse = async (req, res) => {
     try {
         const houseId = req.params.houseId;
-        const deletedHouse = await createHouseService.DeleteHouse(houseId);
+        await createHouseService.DeleteHouse(houseId);
         return res.status(200).json({ message: "House deleted successfully" });
     } catch (error) {
         console.log(error);

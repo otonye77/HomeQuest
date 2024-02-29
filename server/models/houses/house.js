@@ -19,9 +19,21 @@ const House = sequelize.define("House", {
         type: Sequelize.STRING,
         allowNull: false
     },
+    availability: {
+        type: Sequelize.ENUM('rent', 'sale'),
+        allowNull: false
+    },
     userId: {
         type: Sequelize.UUID,
         allowNull: false
+    },
+    noOfBathroom: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    noOfSquareFeet: {
+        type: Sequelize.STRING,
+        allowNull: true
     },
     image: {
         type: Sequelize.STRING,
@@ -30,6 +42,3 @@ const House = sequelize.define("House", {
 });
 
 module.exports = House;
-
-const User = require('../auth/auth'); 
-House.belongsTo(User, { foreignKey: 'userId' });
