@@ -1,28 +1,35 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/database');
 
-const User = sequelize.define("User", {
+const House = sequelize.define("House", {
     id: {
         type: Sequelize.UUID,
         primaryKey: true,
         allowNull: false
     },
-    username: {
+    typeOfHouse: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    email: {
+    address: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true
     },
-    password: {
+    noOfRooms: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    userId: {
+        type: Sequelize.UUID,
+        allowNull: false
+    },
+    image: {
+        type: Sequelize.STRING,
+        allowNull: true 
     }
 });
 
-module.exports = User;
+module.exports = House;
 
-const House = require('../houses/house'); 
-User.hasMany(House, { as: 'houses', foreignKey: 'userId' });
+const User = require('../auth/auth'); 
+House.belongsTo(User, { foreignKey: 'userId' });
