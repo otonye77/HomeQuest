@@ -1,0 +1,16 @@
+.login {
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.login-form-container {
+    width: 40%;
+    margin: 0 auto;
+}
+
+.login-button-container {
+    padding-top: 10px;
+    width: 40%;
+    margin: 0 auto;
+}

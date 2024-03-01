@@ -2,14 +2,14 @@ const createHouseService = require("../../services/house/house");
 
 const CreateHouse = async (req, res) => {
     try {
-        const { typeOfHouse, address, noOfRooms, availability, userId, noOfBathroom, noOfSquareFeet, image } = req.body;
-        if (!typeOfHouse || !address || !noOfRooms || !availability || !userId || !image) {
+        const { typeOfHouse, address, noOfRooms, availability, userId, noOfBathroom, price,  noOfSquareFeet, image } = req.body;
+        if (!typeOfHouse || !address || !noOfRooms || !price || !availability || !userId || !image) {
             return res.status(400).json({
                 error: "typeOfHouse, address, noOfRooms, availability, userId, image cannot be empty"
             });
         }
 
-        const house = await createHouseService.createHouseService(typeOfHouse, address, noOfRooms, availability, userId, noOfBathroom, noOfSquareFeet, image);
+        const house = await createHouseService.createHouseService(typeOfHouse, address, noOfRooms, availability, userId, noOfBathroom, price, noOfSquareFeet, image);
         return res.status(201).json(house);
     } catch (error) {
         console.log(error);

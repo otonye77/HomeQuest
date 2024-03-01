@@ -1,7 +1,7 @@
 const House = require('../../models/houses/house');
 const { v4: uuidv4 } = require("uuid");
 
-const createHouseService = async (typeOfHouse, address, noOfRooms, availability, userId, noOfBathroom, noOfSquareFeet, image) => {
+const createHouseService = async (typeOfHouse, address, noOfRooms, availability, userId, noOfBathroom, price, noOfSquareFeet, image) => {
     try {
         const newHouse = await House.create({
             id: uuidv4(),
@@ -11,6 +11,7 @@ const createHouseService = async (typeOfHouse, address, noOfRooms, availability,
             availability,
             userId,
             noOfBathroom,
+            price,
             noOfSquareFeet,
             image
         })

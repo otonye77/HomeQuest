@@ -31,6 +31,10 @@ const House = sequelize.define("House", {
         type: Sequelize.STRING,
         allowNull: true
     },
+    price: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     noOfSquareFeet: {
         type: Sequelize.STRING,
         allowNull: true
