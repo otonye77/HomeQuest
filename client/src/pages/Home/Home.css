@@ -1,0 +1,46 @@
+.button-container {
+    display: flex;
+  }
+
+  .home-browser-properties {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    padding: 30px;
+  }
+
+  .home-browse-text {
+    color: white;
+    text-align: center;
+    font-size: 42px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button-container button {
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    border: white;
+  }
+  
+  .button-container button.active {
+    background-color: white;
+    color: black;
+  }
+
+  .house-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    padding-top: 20px;
+    cursor: pointer;
+  }
+  

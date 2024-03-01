@@ -1,0 +1,68 @@
+.home-card-details-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  .house-details-button-container {
+    margin-top: 20px;
+    display: flex;
+    border: none;
+  }
+
+  .delete-button,
+  .edit-button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ff6347;
+    color: white;
+    width: 40%;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-content p {
+    margin-bottom: 15px;
+  }
+  
+  .modal-content button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .confirm {
+    background-color: #ff6347; 
+    color: white;
+  }
+  
+  .cancel {
+    background-color: #ccc; 
+    color: black;
+  }
+  
