@@ -36,9 +36,11 @@ export const getHouseById = async (houseId) => {
   }
 };
 
-export const deleteHouse = async (houseId) => {
+export const deleteHouse = async (houseId, userId) => {
   try {
-    const response = await axios.delete(`${baseUrl}/houses/${houseId}`);
+    const response = await axios.delete(`${baseUrl}/houses/${houseId}`, {
+      data: { userId: userId }
+    });
     return response.data;
   } catch (error) {
     console.error("Error deleting house:", error);
@@ -46,11 +48,12 @@ export const deleteHouse = async (houseId) => {
   }
 };
 
-export const updateHouse = async (houseId, updatedData) => {
+
+export const updateHouse = async (houseId, updatedData, userId) => {
   try {
     const response = await axios.put(
       `${baseUrl}/houses/${houseId}`,
-      updatedData
+      { ...updatedData, userId },
     );
     return response.data;
   } catch (error) {
@@ -58,3 +61,4 @@ export const updateHouse = async (houseId, updatedData) => {
     throw error;
   }
 };
+

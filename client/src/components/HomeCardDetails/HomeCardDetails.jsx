@@ -8,6 +8,7 @@ const HomeCardDetails = () => {
   const [house, setHouse] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+  const userId = localStorage.getItem('testuserid');
 
   useEffect(() => {
     const fetchHouse = async () => {
@@ -24,7 +25,7 @@ const HomeCardDetails = () => {
 
   const handleDelete = async () => {
     try {
-      await deleteHouse(id);
+      await deleteHouse(id, userId);
       navigate("/home");
     } catch (error) {
       console.error("Error deleting house:", error);

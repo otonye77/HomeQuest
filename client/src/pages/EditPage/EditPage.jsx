@@ -10,6 +10,9 @@ const EditHouse = () => {
   const [house, setHouse] = useState(null);
   const [formData, setFormData] = useState({});
   const navigate = useNavigate();
+  const userId = localStorage.getItem('testuserid');
+
+  console.log(userId);
 
   useEffect(() => {
     const fetchHouse = async () => {
@@ -40,7 +43,7 @@ const EditHouse = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await updateHouse(id, formData);
+      await updateHouse(id, formData, userId); 
       navigate(`/homedetails/${id}`);
     } catch (error) {
       console.error("Error updating house:", error);
