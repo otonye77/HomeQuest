@@ -8,9 +8,9 @@ const Header = () => {
         <span>Company Name</span>
       </div>
       <div className="nav-links">
-        <a href="/">Home</a>
-        <a href="/properties">Properties</a>
-        <a>Add Properties</a>
+        <a href="/home">Home</a>
+        <a href="">Properties</a>
+        <a href="/create-house">Add Properties</a>
       </div>
     </div>
   );

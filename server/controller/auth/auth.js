@@ -23,27 +23,29 @@ const register = async (req, res, next) => {
 };
 
 const login = async (req, res, next) => {
-    try {
-      const { email, password } = req.body;
-      if (!email || !password) {
-        return res
-          .status(400)
-          .json({ error: "Email and password cannot be empty" });
-      }
-      const token = await authService.loginUser(email, password);
-      return res.status(200).json({ token });
-    } catch (error) {
-      if (error.message === "User not found" || error.message === "Invalid email or password") {
-        return res.status(401).json({ error: error.message });
-      } else {
-        console.error(error);
-        return res.status(500).json({ error: "Internal server error" });
-      }
+  try {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res
+        .status(400)
+        .json({ error: "Email and password cannot be empty" });
     }
-  };
-  
+    const userData = await authService.loginUser(email, password);
+    return res.status(200).json(userData);
+  } catch (error) {
+    if (
+      error.message === "User not found" ||
+      error.message === "Invalid email or password"
+    ) {
+      return res.status(401).json({ error: error.message });
+    } else {
+      console.error(error);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+  }
+};
 
 module.exports = {
   register,
-  login
+  login,
 };

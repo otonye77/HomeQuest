@@ -5,6 +5,7 @@ import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 import HomeCardDetails from './components/HomeCardDetails/HomeCardDetails';
 import EditHouse from './pages/EditPage/EditPage';
+import CreatePage from './pages/CreatePage/CreatePage';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/homedetails/:id" element={<HomeCardDetails />} />
         <Route path="/edit-house/:id" element={<EditHouse />} /> 
+        <Route path="/create-house" element={<CreatePage/>} /> 
       </Routes>
     </div>
   )
