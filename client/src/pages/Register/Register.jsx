@@ -6,6 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -15,10 +20,21 @@ const Register = () => {
     password: "",
   });
 
-  const handleSubmit = () => {
-    dispatch(RegisterUser(userData));
-    navigate("/login");
+  const handleSubmit = async () => {
+    try {
+      const response = await dispatch(RegisterUser(userData));
+      console.log(response)
+      if(response.message === "created successfully") {
+        navigate("/login");
+        toast.success("Registration successful. Redirecting to login.");
+      } else {
+        toast.error("Registration failed. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Registration failed. Please try again.");
+    }
   };
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -30,6 +46,7 @@ const Register = () => {
   };
   return (
     <div className="register-container">
+       <ToastContainer />
       <div className="register">
         <h2 className="register-text">Register</h2>
       </div>

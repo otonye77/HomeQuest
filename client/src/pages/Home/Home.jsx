@@ -1,5 +1,3 @@
-// Home.js
-
 import { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import './Home.css';
@@ -18,14 +16,25 @@ const Home = () => {
     const fetchHouses = async () => {
       try {
         const housesData = await getAllHouses();
-        setHouses(housesData);
+        console.log('this is the house data', housesData);
+        let filteredHouses;
+
+        if (activeButton === 'rent') {
+          filteredHouses = housesData.filter(house => house.availability === 'rent');
+        } else if (activeButton === 'sell') {
+          filteredHouses = housesData.filter(house => house.availability === 'sale');
+        } else {
+          filteredHouses = housesData;
+        }
+
+        setHouses(filteredHouses);
       } catch (error) {
-        // Handle error if needed
+        console.log(error)
       }
     };
 
     fetchHouses();
-  }, []); // Empty dependency array to run the effect only once on component mount
+  }, [activeButton]); // Dependency array includes activeButton
 
   return (
     <div>
@@ -42,16 +51,16 @@ const Home = () => {
             Rent
           </button>
           <button
-            className={activeButton === 'buy' ? 'active' : ''}
-            onClick={() => handleButtonClick('buy')}
-          >
-            Buy
-          </button>
-          <button
             className={activeButton === 'sell' ? 'active' : ''}
             onClick={() => handleButtonClick('sell')}
           >
             Sell
+          </button>
+          <button
+            className={activeButton === 'all' ? 'active' : ''}
+            onClick={() => handleButtonClick('all')}
+          >
+            All
           </button>
         </div>
       </div>

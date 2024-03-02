@@ -5,18 +5,28 @@ import Button from "../../components/Button/Button";
 import InputForm from "../../components/InputForm/InputForm";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [userData, setUserData] = useState({ email: '', password: '' });
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
       try {
-          dispatch(LoginUser(userData));
-          navigate('/home');
+          const res = await dispatch(LoginUser(userData));
+          console.log(res);
+          if(res.userId){
+            navigate('/home');
+            toast.success("Login successful. Redirecting to login.");
+          } else {
+            toast.error("Login failed. Please try again.");
+          }
+        //   navigate('/home');
       } catch (error) {
           console.error('Login failed:', error);
+          toast.error("Login failed. Please try again.");
       }
   };
   
@@ -29,6 +39,7 @@ const Login = () => {
 
     return (
         <div className="login-container">
+            <ToastContainer />
             <div className="login">
                 <h2 className="login-text">Login</h2>
             </div>

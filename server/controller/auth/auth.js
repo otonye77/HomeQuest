@@ -10,7 +10,7 @@ const register = async (req, res, next) => {
     }
     const user = await authService.registerUser(username, email, password);
     return res.status(201).json({
-      message: `${user.username} ${user.id} created successfully`,
+      message: `created successfully`,
     });
   } catch (error) {
     if (error.message === "User already exists") {

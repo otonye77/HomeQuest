@@ -13,7 +13,7 @@ const HomeCard = ({ data }) => {
         <p className="home-card-text">Address: {data.address}</p>
         <p className="home-card-text">Rooms: {data.noOfRooms}</p>
         <p className="home-card-text">Bathrooms: {data.noOfBathroom}</p>
-        <p className="home-card-text">Price: {data.price}</p>
+        <p className="home-card-text">Price: ${data.price}</p>
         <p className="home-card-text">Square Feet: {data.noOfSquareFeet}</p>
         <p className="home-card-text">Availability: {data.availability}</p>
       </div>
