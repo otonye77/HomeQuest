@@ -1,5 +1,8 @@
 Apartment Management Application
+
 This project is an Apartment Management Application that allows users to register, login, create, update, and delete their own apartment listings. Users can specify whether their apartment is available for rent or sale and manage their listings conveniently.
+
+
 Features
 User Registration: Users can register for an account to access the application.
 User Login: Registered users can log in to the application securely.
@@ -7,6 +10,8 @@ Apartment Creation: Users can create their own apartment listings, specifying de
 Apartment Update: Users can update their existing apartment listings with new information or changes.
 Apartment Deletion: Users can delete their apartment listings if they are no longer valid or available.
 Simulated Payment: Payment simulation feature for demonstration purposes.
+
+
 Tech Stack
 Frontend:
 React: JavaScript library for building user interfaces.
@@ -26,9 +31,11 @@ Frontend Setup:
 Navigate to the client directory: cd client
 Install dependencies: npm install
 Start the frontend server: npm dev
+
 Database Setup:
 Ensure you have PostgreSQL installed and running.
 Create a new database for the application.
+
 Usage
 Register for an account if you are a new user.
 Log in with your credentials.
