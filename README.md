@@ -49,6 +49,8 @@ Navigate to the server directory: cd server
 
 Install dependencies: npm install
 
+Create a .env file at the root folder of the server direction for jwt
+
 Start the server: npm start
 
 Frontend Setup:
